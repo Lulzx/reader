@@ -7,7 +7,7 @@
     <div class="card">
       <div class="card-header border-0 py-3 px-4">
         <h4 class="text-gray-800 font-medium">Reading Stats</h4>
-        <span class="badge bg-primary text-white">32 Total</span>
+        <span class="badge bg-primary text-gray-700">32 Total</span>
       </div>
       <div class="card-body px-4 -mt-2 mb-1 divide-y divide-gray-200">
         <div class="py-3 text-sm flex justify-between items-center">

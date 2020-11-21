@@ -234,7 +234,7 @@
     </div>
   </nav>
 
-  <main>
+  <main class="bg-gray-100 min-h-screen">
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
       <Route path="/">
         <Home />
