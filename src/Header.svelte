@@ -18,7 +18,7 @@
           <div class="flex-shrink-0">
             <a href="/"><img
                 class="h-10 w-10"
-                src="https://gitcoin.co/dynamic/kudos/323/common_pepe.png"
+                src="/pepe.webp"
                 alt="Workflow" />
             </a>
           </div>
@@ -76,10 +76,7 @@
                   on:click={() => (notifications_open = !notifications_open)}
                   aria-haspopup="true">
                   <span class="sr-only">Open user menu</span>
-                  <img
-                    class="h-8 w-8 rounded-full"
-                    src="https://gitcoin.co/dynamic/kudos/323/common_pepe.png"
-                    alt="" />
+                  <img class="h-8 w-8 rounded-full" src="/pepe.webp" alt="" />
                 </button>
               </div>
               {#if notifications_open}
@@ -183,10 +180,7 @@
       <div class="pt-4 pb-3 border-t border-gray-700">
         <div class="flex items-center px-5">
           <div class="flex-shrink-0">
-            <img
-              class="h-10 w-10 rounded-full"
-              src="https://gitcoin.co/dynamic/kudos/323/common_pepe.png"
-              alt="" />
+            <img class="h-10 w-10 rounded-full" src="/pepe.webp" alt="" />
           </div>
           <div class="ml-3">
             <div class="text-base font-medium leading-none text-white">
