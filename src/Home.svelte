@@ -7,7 +7,7 @@
         <div
           class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
           <p class="font-semibold">
-            Currently, the work in progress for this project ⚠️
+            Currently, the work is in progress for this project ⚠️
           </p>
           <ul class="list-disc space-y-2">
             <li class="flex items-start">

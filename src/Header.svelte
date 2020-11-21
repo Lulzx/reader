@@ -10,7 +10,7 @@
   let notifications_open = false;
 </script>
 
-<div>
+<div class="bg-gray-100 min-h-screen">
   <nav class="bg-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
@@ -234,7 +234,7 @@
     </div>
   </nav>
 
-  <main class="bg-gray-100 min-h-screen">
+  <main>
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
       <Route path="/">
         <Home />
