@@ -1,12 +1,15 @@
 <script lang="ts">
   import { Route } from "tinro";
   import Dashboard from "./Dashboard.svelte";
+  import Audiobook from "./Audiobook.svelte";
   import Bookshelf from "./Bookshelf.svelte";
+  import Book from "./Book.svelte";
   import Note from "./Note.svelte";
   import Feed from "./Feed.svelte";
   import Test from "./Test.svelte";
   import Home from "./Home.svelte";
   import Report from "./Report.svelte";
+  import Search from "./Search.svelte";
   let notifications_open = false;
 </script>
 
@@ -43,6 +46,12 @@
               <a
                 href="/report"
                 class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Reports</a>
+              <a
+                href="/audiobook"
+                class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Audiobook</a>
+              <a
+                href="/test"
+                class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Test</a>
             </div>
           </div>
         </div>
@@ -250,6 +259,15 @@
       </Route>
       <Route path="/report">
         <Report />
+      </Route>
+      <Route path="/audiobook">
+        <Audiobook />
+      </Route>
+      <Route path="/book">
+        <Book />
+      </Route>
+      <Route path="/search">
+        <Search />
       </Route>
     </div>
   </main>
