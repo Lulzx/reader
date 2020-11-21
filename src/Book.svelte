@@ -79,7 +79,9 @@
             <span class="flex items-center">
               By
               <span class="text-blue-500 ml-1">
-                <a href={'/search?author=' + author}> {author} </a>
+                <a href={'https://shoten.vercel.app/?author=' + author}>
+                  {author}
+                </a>
               </span>
             </span>
             <span
