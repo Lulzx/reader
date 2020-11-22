@@ -1,274 +1,204 @@
 <script lang="ts">
   import { Route } from "tinro";
-  import Dashboard from "./Dashboard.svelte";
-  import Audiobook from "./Audiobook.svelte";
-  import Bookshelf from "./Bookshelf.svelte";
-  import Book from "./Book.svelte";
-  import Note from "./Note.svelte";
-  import Feed from "./Feed.svelte";
-  import Test from "./Test.svelte";
   import Home from "./Home.svelte";
-  import Report from "./Report.svelte";
-  import Search from "./Search.svelte";
-  let notifications_open = false;
+  import Audiobook from "./Audiobook.svelte";
+  import Book from "./Book.svelte";
+  import Bookshelf from "./Bookshelf.svelte";
+  import Dashboard from "./Dashboard.svelte";
+  import Note from "./Note.svelte";
+  import Test from "./Test.svelte";
+  let selected = 1;
 </script>
 
-<div class="bg-gray-100 min-h-screen">
-  <nav class="bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <a href="/"><img
-                class="h-10 w-10"
-                src="/pepe.webp"
-                alt="Workflow" />
-            </a>
-          </div>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-4">
-              <a
-                href="/dashboard"
-                class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-700">Dashboard</a>
-
-              <a
-                href="/bookshelf"
-                class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Bookshelf</a>
-
-              <a
-                href="/note"
-                class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Notes</a>
-
-              <a
-                href="/feed"
-                class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Feeds</a>
-
-              <a
-                href="/report"
-                class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Reports</a>
-              <a
-                href="/audiobook"
-                class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Audiobook</a>
-              <a
-                href="/test"
-                class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Test</a>
-            </div>
-          </div>
-        </div>
-        <div class="hidden md:block">
-          <div class="ml-4 flex items-center md:ml-6">
+<div class="flex antialiased">
+<div class="flex-initial bg-gray-200 p-8 h-screen">
+  <div class="flex justify-center">
+    <nav id="nav" class="w-56 relative">
+      <span
+        class="absolute h-10 w-full bg-white rounded-lg shadow ease-out transition-transform transition-medium"
+        style="transform: translateY(calc(100% * {selected}))" />
+      <ul class="relative">
+        <li>
+          <a href="/">
             <button
-              class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-              <span class="sr-only">View notifications</span>
-              <!-- Heroicon name: bell -->
+              type="button"
+              on:click={() => (selected = 0)}
+              :aria-selected="selected === 0"
+              class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
               <svg
-                class="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                class="{selected === 0 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true">
+                fill="currentColor">
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12.707 2.293a1 1 0 00-1.414 0l-9 9a1 1 0 101.414 1.414L4 12.414V21a1 1 0 001 1h5a1 1 0 001-1v-6h2v6a1 1 0 001 1h5a1 1 0 001-1v-8.586l.293.293a1 1 0 001.414-1.414l-9-9zM18 10.414l-6-6-6 6V20h3v-6a1 1 0 011-1h4a1 1 0 011 1v6h3v-9.586z" />
               </svg>
+              <span
+                class="{selected === 0 ? 'text-indigo-600' : 'text-gray-700'} ml-2 text-sm font-medium transition-all ease-out transition-medium">
+                Home
+              </span>
             </button>
+          </a>
+        </li>
+        <li>
+          <a href="/dashboard">
+            <button
+              type="button"
+              on:click={() => (selected = 1)}
+              :aria-selected="selected === 1"
+              class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
+              <svg
+                class="{selected === 1 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"
+                viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M11.617 1.076a1 1 0 011.09.217l5.657 5.657a9 9 0 11-13.113.41A1 1 0 017 8.022v2.292a2 2 0 104 0V2a1 1 0 01.617-.924zM13 4.414v5.9A4 4 0 015.212 11.6 7 7 0 1016.95 8.364L13 4.414z" />
+              </svg>
+              <span
+                class="{selected === 1 ? 'text-indigo-600' : 'text-gray-700'} ml-2 text-sm font-medium transition-all ease-out transition-medium">
+                Dashboard
+              </span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="/test">
+            <button
+              type="button"
+              on:click={() => (selected = 2)}
+              :aria-selected="selected === 2"
+              class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
+              <svg
+                class="{selected === 2 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"
+                viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 7a1 1 0 011-1h8a1 1 0 011 1v8a1 1 0 11-2 0V8h-7a1 1 0 01-1-1z" />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M20.707 7.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0L9 12.414l-5.293 5.293a1 1 0 01-1.414-1.414l6-6a1 1 0 011.414 0L13 13.586l6.293-6.293a1 1 0 011.414 0z" />
+              </svg>
+              <span
+                class="{selected === 2 ? 'text-indigo-600' : 'text-gray-700'} ml-2 text-sm font-medium transition-all ease-out transition-medium">
+                Test
+              </span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="/bookshelf">
+            <button
+              type="button"
+              on:click={() => (selected = 3)}
+              :aria-selected="selected === 3"
+              class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
+              <svg
+                class="{selected === 3 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"
+                viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M7 10a3 3 0 013-3h8a3 3 0 013 3v8a3 3 0 01-3 3h-8a3 3 0 01-3-3v-8zm3-1a1 1 0 00-1 1v8a1 1 0 001 1h8a1 1 0 001-1v-8a1 1 0 00-1-1h-8z" />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M3 6a3 3 0 013-3h10a1 1 0 110 2H6a1 1 0 00-1 1v10a1 1 0 11-2 0V6z" />
+              </svg>
+              <span
+                class="{selected === 3 ? 'text-indigo-600' : 'text-gray-700'} ml-2 text-sm font-medium transition-all ease-out transition-medium">
+                Bookshelf
+              </span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="/note">
+            <button
+              type="button"
+              on:click={() => (selected = 4)}
+              :aria-selected="selected === 4"
+              class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
+              <svg
+                class="{selected === 4 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"
+                viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M4 5a3 3 0 013-3h10a3 3 0 013 3v16a1 1 0 01-1.447.894L12 18.618l-6.553 3.276A1 1 0 014 21V5zm3-1a1 1 0 00-1 1v14.382l5.553-2.776a1 1 0 01.894 0L18 19.382V5a1 1 0 00-1-1H7z" />
+              </svg>
+              <span
+                class="{selected === 4 ? 'text-indigo-600' : 'text-gray-700'} ml-2 text-sm font-medium transition-all ease-out transition-medium">
+                Notes
+              </span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="/audiobook">
+            <button
+              type="button"
+              on:click={() => (selected = 5)}
+              :aria-selected="selected === 5"
+              class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
+              <svg
+                class="{selected === 5 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"
+                viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M13 11.586l2.536 2.535a1 1 0 11-1.415 1.415l-2.828-2.829A.997.997 0 0111 12V8a1 1 0 112 0v3.586z" />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5 1a1 1 0 011 1v1.998c3.918-2.945 9.506-2.635 13.071.93 3.905 3.906 3.905 10.238 0 14.143-3.905 3.905-10.237 3.905-14.142 0A9.972 9.972 0 012 12a1 1 0 112 0 8 8 0 101.777-5.029A1 1 0 014 6.341V2a1 1 0 011-1z" />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M11.293 12.707A.997.997 0 0111 12V8a1 1 0 112 0v3.586l2.536 2.535a1 1 0 11-1.415 1.415l-2.828-2.829zM5.934 1.643A1 1 0 004 2v4.342a1 1 0 001.777.63A8 8 0 114 12v-.001a1 1 0 10-2 0c0 2.558.977 5.119 2.929 7.071 3.905 3.905 10.237 3.905 14.142 0 3.844-3.844 3.904-10.04.18-13.957A10.004 10.004 0 006 3.999V2a.998.998 0 00-.066-.357zM5 2.25z" />
+              </svg>
+              <span
+                class="{selected === 5 ? 'text-indigo-600' : 'text-gray-700'} ml-2 text-sm font-medium transition-all ease-out transition-medium">
+                Audiobook
+              </span>
+            </button>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<div class="flex-initial p-8 w-full">
+ <Route path="/">
+  <Home />
+</Route>
+<Route path="/dashboard">
+  <Dashboard />
+</Route>
+<Route path="/test">
+  <Test />
+</Route>
+<Route path="/bookshelf">
+  <Bookshelf />
+</Route>
+<Route path="/note">
+  <Note />
+</Route>
+<Route path="/audiobook">
+  <Audiobook />
+</Route>
 
-            <!-- Profile dropdown -->
-            <div class="ml-3 relative">
-              <div>
-                <button
-                  class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                  id="user-menu"
-                  on:click={() => (notifications_open = !notifications_open)}
-                  aria-haspopup="true">
-                  <span class="sr-only">Open user menu</span>
-                  <img class="h-8 w-8 rounded-full" src="/pepe.webp" alt="" />
-                </button>
-              </div>
-              {#if notifications_open}
-                <div
-                  class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="user-menu">
-                  <a
-                    href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    role="menuitem">Your Profile</a>
+<Route path="/book">
+  <Book />
+</Route>
 
-                  <a
-                    href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    role="menuitem">Settings</a>
-
-                  <a
-                    href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    role="menuitem">Sign out</a>
-                </div>
-              {/if}
-            </div>
-          </div>
-        </div>
-        <div class="-mr-2 flex md:hidden">
-          <!-- Mobile menu button -->
-          <button
-            class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-            <span class="sr-only">Open main menu</span>
-            <!--
-              Heroicon name: menu
-
-              Menu open: "hidden", Menu closed: "block"
-            -->
-            <svg
-              class="block h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <!--
-              Heroicon name: x
-
-              Menu open: "block", Menu closed: "hidden"
-            -->
-            <svg
-              class="hidden h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!--
-      Mobile menu, toggle classes based on menu state.
-
-      Open: "block", closed: "hidden"
-    -->
-    <div class="hidden md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a
-          href="#"
-          class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900">Dashboard</a>
-
-        <a
-          href="#"
-          class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Bookshelf</a>
-
-        <a
-          href="#"
-          class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Notes</a>
-
-        <a
-          href="#"
-          class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Feeds</a>
-
-        <a
-          href="#"
-          class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Reports</a>
-      </div>
-      <div class="pt-4 pb-3 border-t border-gray-700">
-        <div class="flex items-center px-5">
-          <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full" src="/pepe.webp" alt="" />
-          </div>
-          <div class="ml-3">
-            <div class="text-base font-medium leading-none text-white">
-              Pepe
-            </div>
-            <div class="text-sm font-medium leading-none text-gray-400">
-              pepe@rocks.com
-            </div>
-          </div>
-          <button
-            class="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-            <span class="sr-only">View notifications</span>
-            <!-- Heroicon name: bell -->
-            <svg
-              class="h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-            </svg>
-          </button>
-        </div>
-        <div class="mt-3 px-2 space-y-1">
-          <a
-            href="#"
-            class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your
-            Profile</a>
-
-          <a
-            href="#"
-            class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
-
-          <a
-            href="#"
-            class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign
-            out</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main>
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-      <Route path="/">
-        <Home />
-      </Route>
-      <Route path="/test">
-        <Test />
-      </Route>
-      <Route path="/dashboard">
-        <Dashboard />
-      </Route>
-      <Route path="/bookshelf">
-        <Bookshelf />
-      </Route>
-      <Route path="/note">
-        <Note />
-      </Route>
-      <Route path="/feed">
-        <Feed />
-      </Route>
-      <Route path="/report">
-        <Report />
-      </Route>
-      <Route path="/audiobook">
-        <Audiobook />
-      </Route>
-      <Route path="/book">
-        <Book />
-      </Route>
-      <Route path="/search">
-        <Search />
-      </Route>
-    </div>
-  </main>
+  </div>
 </div>

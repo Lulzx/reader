@@ -1,6 +1,1 @@
-<script lang="ts">
-  let name = "World";
-</script>
-
-Hello,
-{name}!
+Hello, World! This is a test page.
