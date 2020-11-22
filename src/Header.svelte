@@ -176,7 +176,7 @@
     </nav>
   </div>
 </div>
-<div class="flex-initial p-8 w-full">
+<div class="flex-initial p-8 w-full bg-gray-200">
  <Route path="/">
   <Home />
 </Route>
@@ -195,10 +195,8 @@
 <Route path="/audiobook">
   <Audiobook />
 </Route>
-
 <Route path="/book">
   <Book />
 </Route>
-
   </div>
 </div>
