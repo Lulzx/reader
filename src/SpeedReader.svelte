@@ -65,7 +65,8 @@
     word_show(0);
     word_update();
   }
-  function change_speed() {
+  function change_speed(change: number) {
+    wpm += change;
     interval = 60000 / wpm;
     if (!paused) {
       words_set();
@@ -99,11 +100,9 @@
 <style>
   .spritz {
     position: relative;
-    width: 30rem;
     padding: 1rem 0 1.2rem;
     border-top: 2px solid #000;
     border-bottom: 2px solid #000;
-    margin: auto;
   }
   .spritz:after,
   .spritz:before {
@@ -141,87 +140,71 @@
     width: 60%;
     text-align: left;
   }
-  .settings {
-    margin: 0 auto;
-    max-width: 30rem;
-  }
-  .settings button,
-  .settings input,
-  .settings .textarea {
-    box-sizing: border-box;
-    border: 0;
-    color: #000;
-    padding: 1rem 1.5rem;
-  }
-  .settings button:focus,
-  .settings input:focus {
-    outline: 0;
-  }
-  .settings .interaction {
-    margin: 2rem 0;
-  }
-  .settings .speed {
-    position: relative;
-    display: block;
-    float: right;
-    height: 4rem;
-    width: 18rem;
-    font-weight: 600;
-  }
-  .settings .refresh {
-    margin: 1rem auto;
-    display: block;
-    cursor: pointer;
-  }
-  .settings .refresh:active {
-    padding: 1.1rem 1.5rem 0.9rem;
-  }
-  .settings .textarea {
-    width: 100%;
-    height: 5em;
-    margin: 5rem 0 0;
-  }
-  .settings .textarea::-webkit-scrollbar {
-    width: 0.8rem;
-  }
-  .settings .textarea::-webkit-scrollbar-thumb {
-    background: #ccc;
-  }
 </style>
 
-<div class="p-12">
-  <div class="spritz">
-    <div class="spritz-word">
-      <div>{previous}</div>
-      <div>{middle}</div>
-      <div>{end}</div>
-    </div>
-  </div>
-  <div class="settings">
-    <div class="interaction">
-      <button
-        class={status}
-        id="spritz_pause"
-        href="#"
-        title="Pause/Play"
-        on:click={pause}>{#if paused}▶️{:else}⏸{/if}</button>
-      <label for="spritz_wpm">speed</label><input
-        class="speed"
-        id="spritz_wpm"
-        type="number"
-        bind:value={wpm}
-        on:input={change_speed}
-        step="50"
-        min="50" />
-    </div>
-    <label>
-      <input type="text" class="textarea" bind:value={text} />
-    text
-    </label>
-    <button
-      class="refresh"
-      id="spritz_change"
-      on:click={refresh}>Refresh</button>
-  </div>
-</div>
 <svelte:window on:keydown={keyup} />
+<main class="flex-grow flex justify-center items-center">
+  <div class="grid gap-4 items-start mt-8 mx-auto px-8">
+    <div class="col-span-2">
+      <div class="bg-white shadow-lg rounded-lg px-4 py-6 mx-4 my-4">
+        <div class="mx-auto h-auto bg-gray-200 rounded-md">
+          <div class="spritz">
+            <div class="spritz-word">
+              <div>{previous}</div>
+              <div>{middle}</div>
+              <div>{end}</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center mt-4">
+          <div
+            on:click={pause}
+            class="flex justify-center rounded-sm h-8 w-20 px-4 bg-gray-200 mr-2 transform hover:scale-95 transition duration-300 cursor-pointer">
+            <button
+              class="{status} focus:outline-none"
+              id="spritz_pause"
+              href="#"
+              title="Pause/Play">{#if paused}▶️{:else}⏸{/if}</button>
+          </div>
+          <div
+            class="flex justify-center rounded-sm h-8 w-20 px-4 bg-green-300 transform hover:scale-95 transition duration-300 cursor-pointer"
+            on:click={refresh}>
+            <button
+              class="refresh focus:outline-none"
+              id="spritz_change">🔄</button>
+          </div>
+        </div>
+        <div class="flex justify-center mt-2">
+          <div
+            class="flex justify-center rounded-sm h-8 w-20 px-4 mr-2 bg-red-300 transform hover:scale-95 transition duration-300 cursor-pointer"
+            on:click={() => {
+              pause();
+              change_speed(-50);
+              pause();
+            }}>
+            <button
+              class="refresh focus:outline-none"
+              id="spritz_change">🐌</button>
+          </div>
+          <div
+            class="flex justify-center rounded-sm h-8 w-20 px-4 bg-blue-300 transform hover:scale-95 transition duration-300 cursor-pointer"
+            on:click={() => {
+              pause();
+              change_speed(50);
+              pause();
+            }}>
+            <button
+              class="refresh focus:outline-none"
+              id="spritz_change">🚀</button>
+          </div>
+        </div>
+        <div class="bg-gray-200 w-64 mt-2 block mx-auto rounded-sm">
+          <input
+            type="text"
+            class="bg-gray-200 focus:outline-none"
+            bind:value={text} />
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
