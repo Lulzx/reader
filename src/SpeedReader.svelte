@@ -163,7 +163,7 @@
             <button
               class="{status} focus:outline-none"
               id="spritz_pause"
-              href="#"
+              href="#!"
               title="Pause/Play">{#if paused}▶️{:else}⏸{/if}</button>
           </div>
           <div
