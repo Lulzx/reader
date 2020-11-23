@@ -12,8 +12,8 @@
   import Sidebar from "./Sidebar.svelte";
   import Navigation from "./Navigation.svelte";
   let open = false;
-  function mobile() {
-    return typeof window.orientation !== "undefined";
+  function mobile(): boolean {
+    return /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent);
   }
 </script>
 
