@@ -7,6 +7,7 @@
   import Dashboard from "./Dashboard.svelte";
   import Note from "./Note.svelte";
   import Test from "./Test.svelte";
+  import SpeedReader from "./SpeedReader.svelte";
   let selected = 0;
 </script>
 
@@ -197,6 +198,9 @@
     </Route>
     <Route path="/book">
       <Book />
+    </Route>
+    <Route path="/speed">
+      <SpeedReader />
     </Route>
   </div>
 </div>
