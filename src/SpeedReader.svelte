@@ -97,7 +97,6 @@
 </script>
 
 <style>
-  @charset "UTF-8";
   .spritz {
     position: relative;
     width: 30rem;
@@ -206,7 +205,7 @@
         href="#"
         title="Pause/Play"
         on:click={pause}>{#if paused}▶️{:else}⏸{/if}</button>
-      <input
+      <label for="spritz_wpm">speed</label><input
         class="speed"
         id="spritz_wpm"
         type="number"
@@ -215,7 +214,10 @@
         step="50"
         min="50" />
     </div>
-    <input type="text" class="textarea" bind:value={text} />
+    <label>
+      <input type="text" class="textarea" bind:value={text} />
+    text
+    </label>
     <button
       class="refresh"
       id="spritz_change"

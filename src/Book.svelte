@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import {onMount} from "svelte";
 
   let loading = true;
 
@@ -13,8 +13,7 @@
 
   async function retrieve<T>(request: RequestInfo): Promise<T> {
     const response = await fetch(request);
-    const body = await response.json();
-    return body;
+    return await response.json();
   }
 
   interface book {
