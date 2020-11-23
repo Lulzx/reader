@@ -10,14 +10,24 @@
   import SpeedReader from "./SpeedReader.svelte";
   import Navbar from "./Navbar.svelte";
   import Sidebar from "./Sidebar.svelte";
+  import Navigation from "./Navigation.svelte";
   let open = false;
+  function mobile() {
+    return typeof window.orientation !== "undefined";
+  }
 </script>
 
 <div class="flex antialiased bg-gray-200">
-  <div class="flex-initial h-screen z-10">
-    <Sidebar bind:open />
-    <Navbar bind:sidebar={open} />
-  </div>
+  {#if mobile()}
+    <div class="flex-initial h-screen z-10">
+      <Sidebar bind:open />
+      <Navbar bind:sidebar={open} />
+    </div>
+  {:else}
+    <div class="flex-initial p-8 h-screen">
+      <Navigation />
+    </div>
+  {/if}
   <div class="flex-auto items-center p-8 w-full">
     <Route path="/">
       <Home />
