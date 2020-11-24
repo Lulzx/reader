@@ -65,13 +65,13 @@
     });
   });
   function key_handler(event: any) {
-    if (event.code == 32) {
+    if (event.code == "Space") {
       open = !open;
     }
-    if (event.code == 37) {
+    if (event.code == "ArrowLeft") {
       rendition.prev();
     }
-    if (event.code == 39) {
+    if (event.code == "ArrowRight") {
       rendition.next();
     }
   }
