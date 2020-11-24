@@ -11,6 +11,7 @@
   import Navbar from "./Navbar.svelte";
   import Sidebar from "./Sidebar.svelte";
   import Navigation from "./Navigation.svelte";
+  import Read from "./Read.svelte";
   let open = false;
   function mobile(): boolean {
     return /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -28,7 +29,7 @@
       <Navigation />
     </div>
   {/if}
-  <div class="flex-auto items-center p-8 w-full">
+  <div class="flex-auto items-center p-0 w-full">
     <Route path="/">
       <Home />
     </Route>
@@ -52,6 +53,9 @@
     </Route>
     <Route path="/speed">
       <SpeedReader />
+    </Route>
+    <Route path="/read">
+      <Read />
     </Route>
   </div>
 </div>
