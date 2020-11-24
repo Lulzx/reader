@@ -4,6 +4,23 @@
   import { fly, fade } from "svelte/transition";
   let open = false;
   let highlights: string[] = [];
+  let position: number = 0; // current page
+  let count: number = 0; // max pages read
+  let json_data = {
+    count: count,
+    position: position,
+  };
+  let data: string | null = localStorage.getItem("data");
+  if (data == null) {
+    json_data = {
+      count: 0,
+      position: 0,
+    };
+  } else {
+    json_data = JSON.parse(data);
+  }
+  position = json_data.position;
+  count = json_data.count;
   let url: string | null = new URL(window.location.href).searchParams.get(
     "url"
   );
@@ -18,14 +35,13 @@
     manager: "continuous",
   });
   onMount(async () => {
-    rendition.display(10);
-
+    rendition.display();
     book.loaded.navigation.then(function (toc) {
       console.log(toc);
     });
 
     rendition.on("relocated", function (location: any) {
-      console.log(location);
+      console.log(location); // {start: {…}, end: {…}}
     });
 
     rendition.on(
@@ -69,13 +85,27 @@
       }
     });
   });
+  function update() {
+    if (position > count) {
+      count = position;
+    }
+    json_data = { count: count, position: position };
+    localStorage.setItem("data", JSON.stringify(json_data));
+  }
   function key_handler(event: any) {
     if (event.code == "Space") {
       open = !open;
     } else if (event.code == "ArrowLeft") {
       rendition.prev();
+      if (position > 1) {
+        position -= 1;
+      }
     } else if (event.code == "ArrowRight") {
       rendition.next();
+      position += 1;
+    }
+    if (event.code == "ArrowLeft" || event.code == "ArrowRight") {
+      update();
     }
   }
 </script>
@@ -94,11 +124,11 @@
   }
 
   #prev {
-    left: 0;
+    left: auto;
   }
 
   #next {
-    right: 0;
+    right: auto;
   }
 
   @media (min-width: 1000px) {
@@ -174,14 +204,18 @@
         href="#prev"
         class="arrow"
         on:click={() => {
+          position -= 1;
           rendition.prev();
+          update();
         }}>‹</a>
       <a
         id="next"
         href="#next"
         class="arrow"
         on:click={() => {
+          position += 1;
           rendition.next();
+          update();
         }}>›</a>
     </div>
   </div>
@@ -238,7 +272,11 @@
                         <li>{highlight}</li>
                       {/each}
                     </ul>
-                  {:else}wow, isn't it so nice?{/if}
+                  {:else}
+                    wow, isn't it so nice that you've read a total of
+                    {count}
+                    pages
+                  {/if}
                 </div>
               </div>
             </div>

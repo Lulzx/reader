@@ -33,7 +33,7 @@
     }
     let base_url = "https://lulzx.herokuapp.com/book/";
     let url = base_url + hash;
-    const data = await retrieve<book[]>(url);
+    let data = await retrieve<book[]>(url);
     title = data["title"];
     subtitle = data["subtitle"];
     description = data["description"];
