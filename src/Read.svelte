@@ -1,11 +1,16 @@
 <script lang="ts">
   import ePub from "epubjs";
   import { onMount } from "svelte";
-  import { fade } from "svelte/transition";
-  import { fly } from "svelte/transition";
+  import { fly, fade } from "svelte/transition";
   let open = false;
   let highlights: string[] = [];
-  let book = ePub("https://s3.amazonaws.com/moby-dick/OPS/package.opf");
+  let url: string | null = new URL(window.location.href).searchParams.get(
+    "url"
+  );
+  if (url === null) {
+    url = "https://s3.amazonaws.com/moby-dick/moby-dick.epub"; // fallback book
+  }
+  let book = ePub(url);
   let rendition = book.renderTo("viewer", {
     width: "100%",
     height: 600,
@@ -67,11 +72,9 @@
   function key_handler(event: any) {
     if (event.code == "Space") {
       open = !open;
-    }
-    if (event.code == "ArrowLeft") {
+    } else if (event.code == "ArrowLeft") {
       rendition.prev();
-    }
-    if (event.code == "ArrowRight") {
+    } else if (event.code == "ArrowRight") {
       rendition.next();
     }
   }
