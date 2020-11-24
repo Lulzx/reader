@@ -99,8 +99,10 @@
             </div>
           </div>
           <div class="flex">
-            <a href={'/read?url=' + download} class="flex ml-auto"><button
-                class="text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Read</button></a>
+            {#if download.endsWith('.epub')}
+              <a href={'/read?url=' + download} class="flex ml-auto"><button
+                  class="text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Read</button></a>
+            {/if}
             <a href={download} class="flex ml-2"><button
                 class="text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Download</button></a>
           </div>
