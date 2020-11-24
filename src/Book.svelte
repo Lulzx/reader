@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {onMount} from "svelte";
+  import { onMount } from "svelte";
 
   let loading = true;
 
@@ -99,7 +99,9 @@
             </div>
           </div>
           <div class="flex">
-            <a href={download} class="flex ml-auto"><button
+            <a href={'/read?url=' + download} class="flex ml-auto"><button
+                class="text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Read</button></a>
+            <a href={download} class="flex ml-2"><button
                 class="text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Download</button></a>
           </div>
         </div>
