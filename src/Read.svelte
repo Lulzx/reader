@@ -64,14 +64,14 @@
       }
     });
   });
-  function key_handler(e: any) {
-    if ((e.keyCode || e.which) == 32) {
+  function key_handler(event: any) {
+    if (event.code == 32) {
       open = !open;
     }
-    if ((e.keyCode || e.which) == 37) {
+    if (event.code == 37) {
       rendition.prev();
     }
-    if ((e.keyCode || e.which) == 39) {
+    if (event.code == 39) {
       rendition.next();
     }
   }
