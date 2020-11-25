@@ -1,8 +1,6 @@
-<script lang="ts">
+<!--<script lang="ts">
   import TailwindCss from "./TailwindCSS.svelte";
-</script>
-
-<section class="container mx-auto py-12 px-4">
+</script><section class="container mx-auto py-12 px-4">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
     <div class="card">
       <div class="card-header border-0 py-3 px-4">
@@ -110,4 +108,5 @@
     </div>
   </div>
 </section>
-<!-- stats end here -->
+stats end here -->
+Dashboard

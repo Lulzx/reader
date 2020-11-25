@@ -35,7 +35,7 @@
     manager: "continuous",
   });
   onMount(async () => {
-    rendition.display();
+    rendition.display(position);
     book.loaded.navigation.then(function (toc) {
       console.log(toc);
     });
