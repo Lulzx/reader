@@ -24,7 +24,6 @@
       <button on:click={() => login(config['audience'])}>Login</button>
     {:else}
       <button on:click={() => logout()}>Logout</button>
-
       <div>
         <div>
           <Route path="/">

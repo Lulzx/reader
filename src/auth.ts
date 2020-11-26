@@ -12,9 +12,6 @@ const userInfo = writable({})
 const authError = writable('')
 const AUTH_KEY = {}
 
-// Default Auth0 expiration time is 10 hours or something like that.
-// If you want to get fancy you can parse the JWT token and get
-// token's actual expiration time.
 const refreshRate = 10 * 60 * 60 * 1000
 
 function createAuth(config) {
