@@ -8,7 +8,7 @@
   import Note from "./Note.svelte";
   import Test from "./Test.svelte";
   import SpeedReader from "./SpeedReader.svelte";
-  import Auth from "./Auth.svelte";
+  import Auth from "./Authentication.svelte";
 </script>
 
 <Route path="/">
