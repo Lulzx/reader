@@ -20,6 +20,7 @@
     "build": "snowpack build"
   },
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.13.3",
     "sass": "^1.29.0",
     "svelte": "3.29.7",
     "tinro": "^0.3.7"
