@@ -9,7 +9,7 @@ const isLoading = writable(true);
 const isAuthenticated = writable(false);
 const authToken = writable('');
 const userInfo = writable({});
-const authError = writable(null);
+const authError = writable('');
 const AUTH_KEY = {};
 
 // Default Auth0 expiration time is 10 hours or something like that.
@@ -22,7 +22,7 @@ function createAuth(config: Auth0ClientOptions) {
   let intervalId: number;
 
   // You can use Svelte's hooks in plain JS files. How nice!
-  onMount(async (): Promise<() => void> => {
+  onMount(async () => {
     auth0 = await createAuth0Client(config);
 
     // Not all browsers support this, please program defensively!
@@ -31,7 +31,7 @@ function createAuth(config: Auth0ClientOptions) {
     // Check if something went wrong during login redirect
     // and extract the error message
     if (params.has('error')) {
-      authError.set(new Error(params.get('error_description')));
+      authError.set("error");
     }
 
     // if code then login success
@@ -40,7 +40,7 @@ function createAuth(config: Auth0ClientOptions) {
       await auth0.handleRedirectCallback();
       // Can be smart here and redirect to original path instead of root
       window.history.replaceState({}, document.title, '/');
-      authError.set(null);
+      authError.set('');
     }
 
     const _isAuthenticated = await auth0.isAuthenticated();
