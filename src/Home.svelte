@@ -1,9 +1,12 @@
-<div class="min-h-screen py-12 bg-gray-200">
+<div class="min-h-screen py-12 bg-gray-200" subpixel-antialiased>
   <section>
-    <h2 class="text-4xl font-extrabold text-center text-gray-700">
+    <h2
+      class="px-5 mt-2 text-3xl font-black leading-tight text-center text-gray-800 sm:mt-0 sm:px-0 sm:text-6xl">
       Shoten Reader
     </h2>
-    <p class="text-center text-gray-600 text-md italic">Reading Reimagined</p>
+    <p class="text-center text-2xl text-gray-600 text-md italic">
+      Reading Reimagined
+    </p>
     <div class="content-center lg:flex lg:justify-center lg:items-center">
       <div class="flex justify-center pt-10 m-auto lg:w-1/4 lg:mx-6 lg:my-8">
         <div class="relative w-64 h-48">
@@ -132,6 +135,13 @@
             class="absolute top-0 left-0 z-30 w-24 h-2 mt-40 ml-48 bg-blue-600" />
         </div>
       </div>
+    </div>
+    <div
+      class="content-center mt-12 sm:flex sm:justify-center sm:items-center md:flex md:justify-center md:items-center lg:flex lg:justify-center lg:items-center">
+      <button
+        class="inline px-4 py-2 text-md font-medium leading-5 text-white uppercase transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg shadow focus:outline-none focus:shadow-outline-blue active:bg-blue-600 hover:bg-blue-700">
+        Start your journey
+      </button>
     </div>
   </section>
 </div>
