@@ -5,4 +5,3 @@ web_modules
 node_modules
 yarn-error.log
 temp
-*lock.json

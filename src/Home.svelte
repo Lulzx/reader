@@ -138,7 +138,7 @@
     </div>
     <div
       class="content-center mt-12 sm:flex sm:justify-center sm:items-center md:flex md:justify-center md:items-center lg:flex lg:justify-center lg:items-center">
-      <a href="/auth"><button
+      <a href="#!"><button
           class="inline px-4 py-2 text-md font-medium leading-5 text-white uppercase transition-colors duration-150 bg-green-600 border border-transparent rounded-lg shadow focus:outline-none focus:shadow-outline-green active:bg-green-600 hover:bg-green-700">
           Start your journey
         </button></a>
