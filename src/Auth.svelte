@@ -21,7 +21,8 @@
     {:else if $authError}
       <p>Authentication error</p>
     {:else if !$isAuthenticated}
-      <button on:click={() => login(config['audience'])}>Login</button>
+      <button
+        on:click={() => login('https://reader.vercel.app/auth')}>Login</button>
     {:else}
       <button on:click={() => logout()}>Logout</button>
       <div>
