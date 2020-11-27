@@ -5,8 +5,6 @@ const config = {
   domain: 'shoten.us.auth0.com',
   client_id: 'MG2ggKq3jrR0xZyzqLb2n9ScFQXD1kDX',
   audience: 'https://shoten.us.auth0.com/api/v2/',
-  redirect_uri: window.location.href,
-  logout_url: window.location.href,
 }
 
 async function createClient() {
@@ -25,7 +23,7 @@ async function loginWithPopup(
     getUser: () => {} | PromiseLike<{}>
   },
   options: any,
-) {
+): Promise<void> {
   popupOpen.set(true)
   try {
     await client.loginWithPopup(options)
