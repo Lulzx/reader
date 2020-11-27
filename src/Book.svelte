@@ -33,17 +33,17 @@
     }
     let base_url = "https://lulzx.herokuapp.com/book/";
     let url = base_url + hash;
-    let data = await retrieve<book[]>(url);
-    title = data["title"];
-    subtitle = data["subtitle"];
-    description = data["description"];
-    author = data["author"];
-    year = data["year"];
-    src = data["image"];
+    let data = await retrieve<book>(url);
+    title = data.title;
+    subtitle = data.subtitle;
+    description = data.description;
+    author = data.author;
+    year = data.year;
+    src = data.image;
     if (src === "NO_IMAGE") {
       src = "https://picsum.photos/312/500";
     }
-    download = data["direct_url"];
+    download = data.direct_url;
     loading = false;
   });
   function description_handler() {
