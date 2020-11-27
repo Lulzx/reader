@@ -1,13 +1,14 @@
 <script lang="ts">
   import { Route } from "tinro";
-  import Home from "./Home.svelte";
   import Audiobook from "./Audiobook.svelte";
   import Book from "./Book.svelte";
   import Bookshelf from "./Bookshelf.svelte";
   import Dashboard from "./Dashboard.svelte";
+  import Home from "./Home.svelte";
   import Note from "./Note.svelte";
-  import Test from "./Test.svelte";
+  import Search from "./Search.svelte";
   import SpeedReader from "./SpeedReader.svelte";
+  import Test from "./Test.svelte";
 </script>
 
 <Route path="/">
@@ -33,4 +34,7 @@
 </Route>
 <Route path="/speed">
   <SpeedReader />
+</Route>
+<Route path="/search">
+  <Search />
 </Route>
