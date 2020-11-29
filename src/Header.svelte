@@ -9,6 +9,7 @@
   import Search from "./Search.svelte";
   import SpeedReader from "./SpeedReader.svelte";
   import Test from "./Test.svelte";
+  import InfoGrid from "./InfoGrid.svelte";
 </script>
 
 <Route path="/">
@@ -37,4 +38,7 @@
 </Route>
 <Route path="/search">
   <Search />
+</Route>
+<Route path="/read">
+  <InfoGrid />
 </Route>
