@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import Navigation from "./Navigation.svelte";
-  export let open = false;
+  export let open: boolean = false;
 </script>
 
 <style>

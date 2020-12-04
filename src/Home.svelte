@@ -15,14 +15,13 @@
   });
 
   function login() {
-    // @ts-ignore
     auth.loginWithPopup(auth0Client);
   }
 </script>
 
 <main>
   {#if !$isAuthenticated}
-    <div class="min-h-screen py-12 bg-gray-200" subpixel-antialiased>
+    <div class="min-h-screen py-12 bg-gray-200 subpixel-antialiased">
       <section>
         <h2
           class="px-5 mt-2 text-3xl font-black leading-tight text-center text-gray-800 sm:mt-0 sm:px-0 sm:text-6xl">

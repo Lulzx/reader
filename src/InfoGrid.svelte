@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Visibility from "./Visibility.svelte";
   let value: string;
   let show = true;
@@ -77,11 +77,13 @@
 <main class="bg-gray-100">
   <div class="w-full bg-gray-100 shadow-xl" id="search-content">
     <div class="container mx-auto py-4 text-black">
-      <input
-        type="text"
-        placeholder="type your query here..."
-        bind:value
-        class="w-full text-grey-800 transition focus:outline-none focus:border-transparent p-2 appearance-none leading-normal text-xl lg:text-2xl" />
+      <label>
+        <input
+          type="text"
+          placeholder="type your query here..."
+          bind:value
+          class="w-full text-grey-800 transition focus:outline-none focus:border-transparent p-2 appearance-none leading-normal text-xl lg:text-2xl" />
+      </label>
     </div>
   </div>
 

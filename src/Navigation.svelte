@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let selected = 0;
+  export let selected: number = 0;
 </script>
 
 <nav id="nav" class="w-56 relative">
@@ -12,7 +12,6 @@
         <button
           type="button"
           on:click={() => (selected = 0)}
-          :aria-selected="selected === 0"
           class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
           <svg
             class="{selected === 0 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"
@@ -35,7 +34,6 @@
         <button
           type="button"
           on:click={() => (selected = 1)}
-          :aria-selected="selected === 1"
           class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
           <svg
             class="{selected === 1 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"
@@ -58,7 +56,6 @@
         <button
           type="button"
           on:click={() => (selected = 2)}
-          :aria-selected="selected === 2"
           class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
           <svg
             class="{selected === 2 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"
@@ -85,7 +82,6 @@
         <button
           type="button"
           on:click={() => (selected = 3)}
-          :aria-selected="selected === 3"
           class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
           <svg
             class="{selected === 3 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"
@@ -112,7 +108,6 @@
         <button
           type="button"
           on:click={() => (selected = 4)}
-          :aria-selected="selected === 4"
           class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
           <svg
             class="{selected === 4 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"
@@ -135,7 +130,6 @@
         <button
           type="button"
           on:click={() => (selected = 5)}
-          :aria-selected="selected === 5"
           class="py-2 px-3 w-full flex items-center focus:outline-none focus-visible:underline">
           <svg
             class="{selected === 5 ? 'text-indigo-400' : 'text-gray-500'} h-6 w-6 transition-all ease-out transition-medium"

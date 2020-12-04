@@ -1,15 +1,15 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  let wpm = 300;
-  let interval = 60000 / wpm;
-  let paused = false;
-  let status = "pause";
-  let i = 1;
+  let wpm: number = 300;
+  let interval: number = 60000 / wpm;
+  let paused: boolean = false;
+  let status: string = "pause";
+  let i: number = 1;
   let words: string[] = [];
   let spritz: number;
   let keyCode;
   let previous: string, middle: string, end: string;
-  let text = `this is some random text which you shouldn't be looking at just go outside and see the sunshine okay life is beautiful you should enjoy is to the fullest there is something wrong why are you still here when I told you already to not pay attention here in this speed reader`;
+  let text: string = `this is some random text which you shouldn't be looking at just go outside and see the sunshine okay life is beautiful you should enjoy is to the fullest there is something wrong why are you still here when I told you already to not pay attention here in this speed reader`;
   function words_set() {
     words = text
       .trim()
@@ -163,15 +163,13 @@
             <button
               class="{status} focus:outline-none"
               id="spritz_pause"
-              href="#!"
               title="Pause/Play">{#if paused}▶️{:else}⏸{/if}</button>
           </div>
           <div
             class="flex justify-center rounded-sm h-8 w-20 px-4 bg-green-300 transform hover:scale-95 transition duration-300 cursor-pointer"
             on:click={refresh}>
             <button
-              class="refresh focus:outline-none"
-              id="spritz_change">🔄</button>
+              class="refresh focus:outline-none">🔄</button>
           </div>
         </div>
         <div class="flex justify-center mt-2">
@@ -183,8 +181,7 @@
               pause();
             }}>
             <button
-              class="refresh focus:outline-none"
-              id="spritz_change">🐌</button>
+              class="refresh focus:outline-none">🐌</button>
           </div>
           <div
             class="flex justify-center rounded-sm h-8 w-20 px-4 bg-blue-300 transform hover:scale-95 transition duration-300 cursor-pointer"
@@ -194,15 +191,16 @@
               pause();
             }}>
             <button
-              class="refresh focus:outline-none"
-              id="spritz_change">🚀</button>
+              class="refresh focus:outline-none">🚀</button>
           </div>
         </div>
         <div class="bg-gray-200 w-64 mt-2 block mx-auto rounded-sm">
-          <input
-            type="text"
-            class="bg-gray-200 focus:outline-none"
-            bind:value={text} />
+          <label>
+            <input
+              type="text"
+              class="bg-gray-200 focus:outline-none"
+              bind:value={text} />
+          </label>
         </div>
       </div>
     </div>
